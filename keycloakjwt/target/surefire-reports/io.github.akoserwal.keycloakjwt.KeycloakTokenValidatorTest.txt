@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: io.github.akoserwal.keycloakjwt.KeycloakTokenValidatorTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.89 s - in io.github.akoserwal.keycloakjwt.KeycloakTokenValidatorTest

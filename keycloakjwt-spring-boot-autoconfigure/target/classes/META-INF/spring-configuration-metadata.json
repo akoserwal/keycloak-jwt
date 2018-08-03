@@ -1,0 +1,49 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "io.github.akoserwal.keycloakjwt.autoconfigure.KeycloakJwtProperties",
+      "name": "keycloakjwt",
+      "type": "io.github.akoserwal.keycloakjwt.autoconfigure.KeycloakJwtProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "io.github.akoserwal.keycloakjwt.autoconfigure.KeycloakJwtProperties",
+      "defaultValue": 300,
+      "name": "keycloakjwt.connect-timeoutms",
+      "description": "Creates a new resource retriever.\n\n @param connectTimeoutms The HTTP connects timeout, in milliseconds,\n                       zero for infinite. Must not be negative.\n @param readTimeoutms    The HTTP read timeout, in milliseconds, zero\n                       for infinite. Must not be negative.\n @param sizeLimit      The HTTP entity size limit, in bytes, zero for\n                       infinite. Must not be negative.",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "io.github.akoserwal.keycloakjwt.autoconfigure.KeycloakJwtProperties",
+      "name": "keycloakjwt.jwk-url",
+      "description": "@param jwkUrl: keycloak certs jwkUrl",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "io.github.akoserwal.keycloakjwt.autoconfigure.KeycloakJwtProperties",
+      "name": "keycloakjwt.jwt-claim",
+      "description": "@param jwtClaim: defined in keycloak mapper for client id: preferred_username or username",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "io.github.akoserwal.keycloakjwt.autoconfigure.KeycloakJwtProperties",
+      "defaultValue": 300,
+      "name": "keycloakjwt.read-timeoutms",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "io.github.akoserwal.keycloakjwt.autoconfigure.KeycloakJwtProperties",
+      "name": "keycloakjwt.resource",
+      "description": "@param:resource: Client ID configured in keycloak",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "io.github.akoserwal.keycloakjwt.autoconfigure.KeycloakJwtProperties",
+      "defaultValue": 51200,
+      "name": "keycloakjwt.size-limit",
+      "type": "java.lang.Integer"
+    }
+  ]
+}
