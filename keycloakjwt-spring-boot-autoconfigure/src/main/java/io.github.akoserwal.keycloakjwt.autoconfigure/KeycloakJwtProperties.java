@@ -32,9 +32,9 @@ public class KeycloakJwtProperties {
      *                       infinite. Must not be negative.
      */
 
-    private int connectTimeoutms = 300;
-    private int readTimeoutms = 300;
-    private int sizeLimit= 51200;
+    private int connectTimeoutms = 0;
+    private int readTimeoutms = 0;
+    private int sizeLimit= 0;
 
 
     public String getJwkUrl() {

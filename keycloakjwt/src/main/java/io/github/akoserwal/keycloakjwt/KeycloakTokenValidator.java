@@ -3,14 +3,13 @@ package io.github.akoserwal.keycloakjwt;
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSAlgorithm;
 import com.nimbusds.jose.RemoteKeySourceException;
+import com.nimbusds.jose.jwk.JWKSet;
+import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
 import com.nimbusds.jose.jwk.source.JWKSource;
-import com.nimbusds.jose.jwk.source.RemoteJWKSet;
 import com.nimbusds.jose.proc.BadJOSEException;
 import com.nimbusds.jose.proc.JWSKeySelector;
 import com.nimbusds.jose.proc.JWSVerificationKeySelector;
 import com.nimbusds.jose.proc.SecurityContext;
-import com.nimbusds.jose.util.DefaultResourceRetriever;
-import com.nimbusds.jose.util.ResourceRetriever;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.proc.BadJWTException;
 import com.nimbusds.jwt.proc.ConfigurableJWTProcessor;
@@ -18,6 +17,7 @@ import com.nimbusds.jwt.proc.DefaultJWTProcessor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.List;
@@ -57,9 +57,9 @@ public class KeycloakTokenValidator  {
      *                       infinite. Must not be negative.
      */
 
-    private int connectTimeoutms = 300;
-    private int readTimeoutms = 300;
-    private int sizeLimit= 51200;
+    private int connectTimeoutms = 0;
+    private int readTimeoutms = 0;
+    private int sizeLimit= 0;
 
     public void setJwtProcessor(ConfigurableJWTProcessor jwtProcessor) {
         this.jwtProcessor = jwtProcessor;
@@ -72,18 +72,23 @@ public class KeycloakTokenValidator  {
     }
 
 
-    private void init(String jwksetUrl) {
-        if (jwksetUrl!=null) {
-            log.info("Initializing JWK set from " + jwksetUrl);
+    private void init(String jwkUrl) {
+        if (jwkUrl!=null) {
+            log.info("Initializing JWK set from " + jwkUrl);
             try {
-                ResourceRetriever resourceRetriever = new DefaultResourceRetriever(connectTimeoutms, readTimeoutms,sizeLimit);
-                JWKSource keySource = new RemoteJWKSet(new URL(jwksetUrl), resourceRetriever);
+                JWKSet jwkSet = getJwkSet(jwkUrl);
+                JWKSource keySource = new ImmutableJWKSet(jwkSet);
                 jwtProcessor.setJWSKeySelector(keySelector(keySource));
                 log.info("JWK set initialized successfully.");
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+
+    public JWKSet getJwkSet(String jwkUrl) throws IOException, ParseException {
+        return JWKSet.load(new URL(jwkUrl), connectTimeoutms, readTimeoutms, sizeLimit);
     }
 
     public String validate(String accessToken) throws BadJOSEException {
