@@ -26,10 +26,13 @@ Add to pom for spring-boot project
 
 ```
 
+## Build 
+
+``` mvn install ```
 
 
 
-## Spring Application
+### Spring Application
 
 example:
 
@@ -65,7 +68,7 @@ keycloak.claim=preferred_username
 
 
 
-## Spring Boot Application
+### Spring Boot Application
 
 application.properties
 
@@ -93,6 +96,10 @@ Add to security config class
 ```
 
 
+License
+-------
+
+* [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 
 
