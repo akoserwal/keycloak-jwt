@@ -5,6 +5,10 @@ import io.github.akoserwal.keycloakjwt.KeycloakTokenValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 
+/**
+ * @author akoserwa@redhat.com
+ */
+
 public class KeycloakJwtAutoconfigure {
 
     @Autowired

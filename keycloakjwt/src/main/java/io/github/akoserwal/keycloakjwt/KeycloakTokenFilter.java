@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- *
+ * @author akoserwa@redhat.com
  */
 public class KeycloakTokenFilter extends OncePerRequestFilter {
 

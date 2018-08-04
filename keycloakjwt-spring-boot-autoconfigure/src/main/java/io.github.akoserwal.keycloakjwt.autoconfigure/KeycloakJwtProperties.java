@@ -2,6 +2,10 @@ package io.github.akoserwal.keycloakjwt.autoconfigure;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+/**
+ * @author akoserwa@redhat.com
+ */
+
 @ConfigurationProperties("keycloakjwt")
 public class KeycloakJwtProperties {
 

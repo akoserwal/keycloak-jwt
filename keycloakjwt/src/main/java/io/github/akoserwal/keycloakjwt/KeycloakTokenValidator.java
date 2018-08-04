@@ -22,6 +22,10 @@ import java.net.URL;
 import java.text.ParseException;
 import java.util.List;
 
+/**
+ * @author akoserwa@redhat.com
+ */
+
 public class KeycloakTokenValidator  {
 
 
